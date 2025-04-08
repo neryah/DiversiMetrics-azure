@@ -1,6 +1,7 @@
 """
 Portfolio Manager Module
 Implements Modern Portfolio Theory with Sharpe Ratio Optimization
+This is based on what we have in the backend/portfolio_sharpe_ratio.py file
 """
 
 import pandas as pd
