@@ -1,3 +1,5 @@
+// This code is a React component for a portfolio management application, it is based on the code at file named Portfolio at the same directroy, and it is not tottaly working yet, need to fix/add/
+
 import React, { useState, useEffect } from 'react';
 import { Stock } from '@/entities/Stock';
 import { InvokeLLM } from '@/integrations/Core';
