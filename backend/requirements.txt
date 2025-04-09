@@ -32,7 +32,8 @@ httpx>=0.23.0
 freezegun>=1.2.0
 pandas-stubs>=1.2.0  # Type hints for pandas
 
+# For MongoDB support
+pymongo==3.12.3
 flask
 flask-cors
-pymongo
 gunicorn
