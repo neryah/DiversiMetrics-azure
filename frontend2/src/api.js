@@ -1,35 +1,28 @@
+// const BASE_URL = "https://diversimetrics-api.azurewebsites.net/api";
+// // REACT_APP_API_BASE_URL=https://diversimetrics-api.azurewebsites.net/api
 // src/api.js
-const BASE_URL = "https://diversimetrics-api.azurewebsites.net/api";
-// REACT_APP_API_BASE_URL=https://diversimetrics-api.azurewebsites.net/api
+const API_BASE = process.env.REACT_APP_API_BASE_URL;
 
+async function registerUser(email, password) {
+  const res = await fetch(`${API_BASE}/register`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password })
+  });
+  return await res.json();
+}
 
-const api = {
-  async loginUser(email, password) {
-    const res = await fetch(`${BASE_URL}/login`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
-  
-    const text = await res.text();
-    console.log("Login response status:", res.status);
-    console.log("Login response body:", text);
-  
-    return res.ok;
-  },  
+async function loginUser(email, password) {
+  const res = await fetch(`${API_BASE}/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password })
+  });
+  return await res.json();
+}
 
-  async registerUser(email, password) {
-    const res = await fetch(`${BASE_URL}/register`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
-    return res.ok;
-  },
-
-  // later:
-  // async getPortfolio(email) { ... }
-  // async savePortfolio(email, portfolio) { ... }
+export default {
+  registerUser,
+  loginUser
 };
 
-export default api;
